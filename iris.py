@@ -102,7 +102,6 @@ print(f'We got {correct} correct!')
 print(f'Output Key:\n {output_key[0]},\n {output_key[1]},\n {output_key[2]}')
 
 #Lets manually add more pieces of data and try to predict what they are
-
 new_iris = torch.tensor([4.7, 3.2, 1.3, 0.2])
 newer_iris = torch.tensor([5.9, 3.0, 5.1, 1.8])
 
@@ -111,4 +110,12 @@ with torch.no_grad():
     print(model(new_iris))
     print(model(newer_iris))
     
+#Lets save the model
+torch.save(model.state_dict(), "iris_model.pt")
 
+#To load model:
+#new_model = Model()
+#new_model.load_state_dict(torch.load("iris_model.pt"))
+
+#To check it loaded correctly:
+#new_model.eval()
