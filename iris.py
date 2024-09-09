@@ -99,5 +99,16 @@ with torch.no_grad():
             correct += 1
 
 print(f'We got {correct} correct!')
+print(f'Output Key:\n {output_key[0]},\n {output_key[1]},\n {output_key[2]}')
 
+#Lets manually add more pieces of data and try to predict what they are
+
+new_iris = torch.tensor([4.7, 3.2, 1.3, 0.2])
+newer_iris = torch.tensor([5.9, 3.0, 5.1, 1.8])
+
+#And crank it through.  It's that easy!
+with torch.no_grad():
+    print(model(new_iris))
+    print(model(newer_iris))
+    
 
